@@ -30,7 +30,7 @@
                 - Save it on local
         - Options of templates:
             - coding / personal / mental / health / planning / discussion / web search / generic / etc
-    - GUI Options:
+    - GUI Options: # Note - Pick one MVP, expand after.
         - Website
         - CLI
         - Browser-Extension
@@ -40,13 +40,17 @@
     - History:
         - On - (Basically multi-shot)
         - Off - (No history, each optimisation flow is new)
+    - A/B Testing:
+        - try the same prompt with different optimization levels, compare results side-by-side
+    - % Optimisation Slider:
+        - Low / Medium / High / Overkill
 
 3. Processing:
     - Intent Recognition
     - Named Entity Recognition
     - Off-loading to LLM 
         - Faster - Grunt (Generic) LLM
-        - Slower - Local LLM
+        - Slower - Local LLM # Note - defeats the purpose, skip this initially or gate it as an optional feature.
             - Or use other non-LLM methods
     - Template addition
     - History injection (if multi-shot)
@@ -58,12 +62,59 @@
     - Optimization:
         - Use non-LLM techniques as well (eg: translating to chinese helps reduce token count)
     - Cache the result of small chunk-based optimisations
+    - Rollback history
+        - Show user the 3-4 optimization candidates, not just the best one [ex: "Option A: 280 tokens (94% quality)"]
 
 4. Output the optimised prompt:
     - Options:
         - Make it copy to clipboard
         - Override / Paste into selection
         - Auto-work: Make it so that the user can press "enter" on the optimisation and it automatically pastes and presses enter on the text blob on AI sites
+            - Note - raises security concerns
+    - Add metrics dashboard (ex.):
+        ```
+        - Original: 450 tokens, $0.0045
+        - Optimized: 280 tokens, $0.0028
+        - Savings: 38% tokens, 39% cost
+        - Quality score: 94% (how much meaning preserved)
+        ```
+
+---
+
+# Possible Issues:
+
+- Quality Score Problem
+    - You mention "preserving semantic meaning" but don't address how to verify it. Options:
+        - Embedding similarity (fast): Compare embeddings of original vs optimized, show % match
+        - LLM judge (slower): Have Claude/GPT rate quality preservation (ironic but works)
+        - User feedback loop: Let users rate if output quality suffered
+
+- Template System Refinement
+    - Current: Templates are LLM-dependent
+    - Problem: That's implementation detail, not user-facing
+
+    - Better framing:
+        - Intent-based templates (coding, creative, analysis, etc)
+        - Provider-specific variants stored internally
+        - User doesn't need to care about provider details
+
+- Handle Code Blocks Explicitly
+    - Instead of "smart detection," do this:
+        - Detect markdown code blocks (```...```)
+        - Give user checkbox: "Preserve code blocks as-is?"
+        - If yes: Only optimize the prose around it
+        - If no: Optimize entire thing
+
+- Cache Strategy Clarification
+    - What to cache:
+        - Template + intent classification results (tiny, high hit rate)
+        - Full optimized prompts (for recurring tasks)
+
+    - What NOT to cache:
+        - Individual token scoring (not reusable)
+        - Intermediate NER results (too specific)
+
+    - Use: Simple key-value store (IndexedDB for browser, SQLite for CLI)
 
 ---
 
