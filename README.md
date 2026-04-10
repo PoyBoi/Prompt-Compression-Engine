@@ -18,7 +18,7 @@ lightweight, intelligent prompt compression engine that automatically reduces to
 
 Every token costs money. A typical enterprise running 10,000+ daily API calls to Claude, GPT-4, or similar models can waste thousands on redundant tokens in their prompts.
 
-This repo identifies and removes unnecessary information—while keeping everything that matters.
+This repo identifies and removes unnecessary information - while keeping everything that matters.
 
 ---
 
