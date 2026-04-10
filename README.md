@@ -10,7 +10,11 @@ lightweight, intelligent prompt compression engine that automatically reduces to
 
 ---
 
+<div align="center">
+  
 ## Why Prompt Compression?
+
+</div>
 
 Every token costs money. A typical enterprise running 10,000+ daily API calls to Claude, GPT-4, or similar models can waste thousands on redundant tokens in their prompts.
 
@@ -24,17 +28,12 @@ Every token costs money. A typical enterprise running 10,000+ daily API calls to
 
 </div>
 
-- **Token Pruning Engine** — Removes redundant phrases and padding without affecting semantic meaning
-- **Importance Scoring** — Ranks every sentence by relevance to task intent
-- **Intent Recognition** — Automatically detects task type and applies specialized compression rules
-- **Task Templates** — Pre-built templates for common workflows (summarization, classification, extraction, Q&A, code generation)
-- **Custom Templates** — Define your own compression profiles for domain-specific use cases
-- **Multi-Interface Support**
-  - **GUI**: Web-based dashboard for interactive compression
-  - **CLI**: Fast command-line tool for scripting and automation
-  - **Browser Plugin**: Compress prompts directly in ChatGPT, Claude Web, and other interfaces
-- **Language Optimization** — Handles English, Chinese, and 10+ other languages
-- **Dry-Run Mode** — Preview compression results before applying
+- Prompt optimisation while not losing semantic semblance
+- Automatically / Manual task type detection
+- Pre-built templates for common workflows (summarization, classification, extraction, Q&A, code generation)
+- Define your own compression profiles for domain-specific use cases and store them
+- Multi-Interface Support - **GUI** / **CLI** / **Browser Plugin**
+- Handles English, Chinese, and 10+ other languages
 
 ---
 
