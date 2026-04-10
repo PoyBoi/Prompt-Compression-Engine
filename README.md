@@ -1,6 +1,6 @@
 <div align="center">
 
-# Prompt Compress
+# Prompt Compression Engine
 
 ### Cut your LLM API costs in half without losing quality.
 
