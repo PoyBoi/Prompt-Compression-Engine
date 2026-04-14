@@ -11,6 +11,12 @@
 - All of this while being BLAZING fast
     - Make it so that the user can press "enter" on the optimisation and it automatically pastes and presses enter on the text blob
 
+- Context Optimizer + Relationship Mapper
+    - Break long context into bite sized facts to store for RAG
+    - Can be used to make a relative database / relative connections from one fact to another (to see how it connects to one thing or the other)
+    - good for optimising long contexts and saving tokens
+
+
 ---
 
 # Process:
@@ -131,3 +137,21 @@
 
 - CompactPrompt:
     - https://arxiv.org/html/2510.18043v1
+
+- misc:
+    - https://medium.com/@sahin.samia/prompt-compression-in-large-language-models-llms-making-every-token-count-078a2d1c7e03
+        - dont overcompress, that causes lack of context 
+        - information distillation - get the keywords and make sure that they aren't cut off when compressing 
+        - use structured porompts (aka prompt templates) to deal with requests
+            - instructions to commands
+            - sentences to phrases
+        - contextual summarization
+        - use entity + intent recognition
+        - query aware compression
+        - options of compression thersholds
+    - https://github.com/3DAgentWorld/Toolkit-for-Prompt-Compression
+    - https://towardsdatascience.com/how-to-cut-rag-costs-by-80-using-prompt-compression-877a07c6bedb/
+    - https://www.reddit.com/r/LanguageTechnology/comments/1k2r7yw/prompt_compression_exploring_ways_to_reduce_llm/
+    - https://www.reddit.com/r/LocalLLaMA/comments/1rafggf/free_opensource_prompt_compression_engine_pure/
+    - https://www.reddit.com/r/GPT3/comments/106t5gv/compressing_prompt_text_with_lossless_compression/
+    - https://www.sandgarden.com/learn/prompt-compression
